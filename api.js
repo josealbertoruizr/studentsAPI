@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const studentsRoutes = require('./src/routes/student');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(express.json());  // parsear json
@@ -15,6 +15,6 @@ app.use(helmet());         // sec adicional
 app.use('/students', studentsRoutes);
 
 // server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
