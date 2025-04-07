@@ -15,6 +15,10 @@ app.use(helmet());         // sec adicional
 app.use('/students', studentsRoutes);
 
 // server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
